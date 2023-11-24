@@ -1,49 +1,42 @@
-const mysql2 = require('mysql2');
+const mysql2 = require('mysql2/promise');
 const genericPool = require('generic-pool');
 
 const { dbConfig } = require('../../config/db_config');
 
+// 커넥션 풀 생성
 const pool = genericPool.createPool({
-  // 커넥션 만들기
-  create: function () {
-    return new Promise((resolve, reject) => {
-      const connection = mysql2.createConnection(dbConfig);
-      connection.connect((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(connection);
-        }
-      });
-    });
-    // async function() {
-    //     try {
-    //         const connection = await mysql2.createConnection(dbConfig);
-    //         return connection;
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // }
+  create: async function () {
+    const connection = await mysql2.createConnection(dbConfig);
+    return connection;
   },
-  // 커넥션 닫기
   destroy: function (connection) {
-    return new Promise((resolve, reject) => [
-      connection.end((err) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve();
-        }
-      }),
-    ]);
+    return connection.end();
   },
 });
 
 module.exports = {
-  getConnection: () => {
+  // 풀에서 커넥션 획득
+  getConnection: function () {
     return pool.acquire();
   },
-  releaseConnection: (connection) => {
+
+  // 사용이 끝난 커넥션을 풀에 반환
+  releaseConnection: function (connection) {
     return pool.release(connection);
+  },
+
+  // 트랜잭션 시작
+  beginTransaction: async function (connection) {
+    await connection.beginTransaction();
+  },
+
+  // 트랜잭션 커밋
+  commitTransaction: async function (connection) {
+    await connection.commit();
+  },
+
+  // 트랜잭션 롤백
+  rollbackTransaction: async function (connection) {
+    await connection.rollback();
   },
 };
