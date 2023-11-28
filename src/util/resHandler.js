@@ -1,9 +1,9 @@
-getMethodSuccessResponse = (res, result) => {
-  return res.status(200).send({ result: result });
+SuccessResponse = (res, message, statusCode) => {
+  return res.status(statusCode).send({ result: message });
 };
 
-postMethodSuccessResponse = (res, message) => {
-  return res.status(201).send({ result: message });
+FailedResponse = (res, ErrorMessage, statusCode) => {
+  return res.status(statusCode).send({ Error: ErrorMessage });
 };
 
-module.exports = { getMethodSuccessResponse, postMethodSuccessResponse };
+module.exports = { SuccessResponse, FailedResponse };
