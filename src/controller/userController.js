@@ -5,12 +5,10 @@ module.exports = {
   userFindAll: async (req, res) => {
     try {
       const user = await userService.findAll();
-      console.log(user);
-      resHandler.getMethodSuccessResponse(res, user);
-      return;
+      resHandler.SuccessResponse(res, user, 200);
     } catch (err) {
       console.error(err);
-      return res.status(500);
+      resHandler.FailedResponse(res, err.stack, 500);
     }
   },
 };

@@ -5,11 +5,13 @@ module.exports = {
     let connection;
     try {
       connection = await db.getConnection();
-      const query = 'SELECT * FROM user';
+      let query = 'SELECT * FROM user';
       const results = await executeQuery(connection, query);
+      console.log('Query Results : ', results);
       return results;
-    } catch (err) {
-      console.error('Error :', err.stack);
+    } catch (error) {
+      console.error('Error:', error.message);
+      return error;
     } finally {
       if (connection) {
         await db.releaseConnection(connection);
@@ -34,7 +36,7 @@ async function executeQuery(connection, query) {
   try {
     const [results] = await connection.query(query);
     return results;
-  } catch (err) {```
-    throw err;
+  } catch (error) {
+    throw error;
   }
 }
