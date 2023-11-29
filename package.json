@@ -2,9 +2,12 @@
   "name": "basicboilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "server": "nodemon ./src/server.js"
+    "test": "mocha src/test/app.spec.js -w",
+    "server": "nodemon ./src/server.js",
+    "start": "cross-env NODE_ENV=dev node ./src/server.js",
+    "start:prod": "cross-env NODE_ENV=production node ./src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -15,12 +18,14 @@
   },
   "devDependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "cross-env": "^7.0.3",
     "express-validator": "^7.0.1",
     "generic-pool": "^3.9.0",
+    "mocha": "^10.2.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.1.0",
+    "supertest": "^6.3.3",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1"
   }
