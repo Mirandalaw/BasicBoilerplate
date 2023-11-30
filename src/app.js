@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-// const { router } = require('./route');
+const { router } = require('./route');
 
 const app = express();
 
@@ -21,11 +21,11 @@ app.get('/', (req, res) => {
   res.send('hello world');
 });
 
-// app.use('/', router);
+app.use('/', router);
 // app.use('/upload', express.static('upload'));
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.search(handlerStatusMiddleware);
+app.use(handlerStatusMiddleware);
 
 module.exports = app;

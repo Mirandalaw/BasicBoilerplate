@@ -1,7 +1,7 @@
 const mysql2 = require('mysql2/promise');
 const genericPool = require('generic-pool');
 
-const { dbConfig } = require('../../config/db_config');
+const { dbConfig } = require('../../config/db/MySQLConfig');
 
 // 커넥션 풀 생성
 const pool = genericPool.createPool({

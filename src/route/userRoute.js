@@ -4,4 +4,8 @@ const userRouter = Router();
 
 userRouter.get('/', userController.userFindAll);
 
+userRouter.get('/test', (req, res) => {
+  res.send('test');
+});
+
 module.exports = { userRouter };
