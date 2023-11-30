@@ -1,4 +1,5 @@
 const db = require('../loader/db');
+const logger = require('../loader/logger');
 
 module.exports = {
   findAll: async () => {
@@ -8,8 +9,10 @@ module.exports = {
       let query = 'SELECT * FROM user';
       const results = await executeQuery(connection, query);
       console.log('Query Results : ', results);
+      logger.info('test Complete');
       return results;
     } catch (error) {
+      logger.error('Error', error.stack);
       console.error('Error:', error.message);
       return error;
     } finally {
