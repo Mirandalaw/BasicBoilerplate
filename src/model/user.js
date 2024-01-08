@@ -1,4 +1,4 @@
-const db = require("../loader/mysqlConn");
+const db = require("../loader/db");
 const logger = require("../util/logger");
 
 module.exports = {
