@@ -1,13 +1,19 @@
-const mysql2 = require('mysql2/promise');
-const genericPool = require('generic-pool');
+const mysql2 = require("mysql2/promise");
+const genericPool = require("generic-pool");
 
-const { dbConfig } = require('../../config/db/MySQLConfig');
+const { mysqlConfig } = require("../config/serverConfig");
+const logger = require("../util/logger");
 
 // 커넥션 풀 생성
 const pool = genericPool.createPool({
   create: async function () {
-    const connection = await mysql2.createConnection(dbConfig);
-    return connection;
+    try {
+      const connection = await mysql2.createConnection(mysqlConfig);
+      return connection;
+    } catch (err) {
+      console.error(err);
+      logger.error("pool Error : ", err.stack);
+    }
   },
   destroy: function (connection) {
     return connection.end();

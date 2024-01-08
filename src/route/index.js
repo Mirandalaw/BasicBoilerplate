@@ -1,9 +1,9 @@
 const { Router } = require('express');
-const { userRouter } = require('./userRoute');
+const  userRouter = require("./userRoute");
 
 const router = Router();
 
-router.use('/user', userRouter);
+router.use("/user", userRouter);
 
 //test용
 
@@ -11,4 +11,4 @@ router.use('/user', userRouter);
 //   res.send('Hello World');
 // });
 
-module.exports = { router };
+module.exports = router ;

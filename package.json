@@ -5,9 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha src/test/app.spec.js -w",
-    "server": "nodemon ./src/server.js",
-    "start": "cross-env NODE_ENV=dev node ./src/server.js",
-    "start:prod": "cross-env NODE_ENV=production node ./src/server.js"
+    "start": "cross-env NODE_ENV=dev node ./src/main.js",
+    "start:prod": "cross-env NODE_ENV=production node ./src/main.js"
   },
   "keywords": [],
   "author": "",
@@ -20,8 +19,10 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
     "express-validator": "^7.0.1",
     "generic-pool": "^3.9.0",
+    "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "mocha": "^10.2.0",
     "moment": "^2.29.4",
