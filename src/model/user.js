@@ -9,12 +9,12 @@ module.exports = {
       const query = `SELECT * FROM user`;
       connection = await db.getConnection();
 
-      const users = await executeQuery(connection, query);
+      const users = await connection.query(query);
 
       return users[0];
     } catch (err) {
       logger.error("model Error : ", err.stack);
-      console.error("Error", err.message);
+      
       return err;
     } finally {
       if (connection) {
@@ -24,11 +24,3 @@ module.exports = {
   },
   }
 
-async function executeQuery(connection, query) {
-  try {
-    const results = await connection.query(query);
-    return results;
-  } catch (error) {
-    throw error;
-  }
-}
