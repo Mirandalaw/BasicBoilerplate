@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
-const WebSocket = require('./chat');
 
 // 추가적인 미들웨어 여기에 추가
 function configureMiddleware(app) {
@@ -29,7 +28,6 @@ function createServerConfig(config, route) {
     const socket = app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });
-    WebSocket(socket);
   }
 
   return { start };
