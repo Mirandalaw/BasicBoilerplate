@@ -17,8 +17,13 @@ module.exports = {
       
       return err;
     } finally {
-      if (connection) {
-        await db.releaseConnection(connection);
+      const releasePromise = connection ? db.releaseConnection(connection) : null;
+      if(releasePromise) {
+        releasePromise.then(() =>{
+          console.log('Connection released sucssessfully');
+        }).catch((error) =>{
+          console.error("Error releasing connection: ", error);
+        })
       }
     }
   },
