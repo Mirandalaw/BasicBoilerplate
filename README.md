@@ -6,6 +6,8 @@
    - 사용 모듈 : env, cross-env
     
 `` npm install env crosse-env --save-dev ``
+>[!TIP]
+>["devDependencies" 와 "dependencies" 의 차이](https://jeong-park.tistory.com/34)
 
 ```
     // src/config/serverConfig.js
@@ -14,8 +16,6 @@
     dotenv.config({
     path: path.resolve(__dirname, `../../.env.${environment}`),
     });
-    </pre>
-    </code>
 ```
     
     
