@@ -24,11 +24,15 @@ script 에서 dev과 production 분리 및 실행
 
 `` npm install env crosse-env --save-dev ``
 
---save-dev 를 사용하는 이유가 궁금하다면? [devDependencies 와 dependencies 의 차이](https://jeong-park.tistory.com/34)
+``--save-dev`` 를 사용하는 이유가 궁금하다면? 
+
+[devDependencies 와 dependencies 의 차이](https://jeong-park.tistory.com/34)
 
 <br/>
 
 사용 이유 : dev와 production 분리하기 위해
+
+<br/>
 
 ```
     // src/config/serverConfig.js
@@ -182,6 +186,8 @@ module.exports = {
 
 #### DB Connection
 
+<br/>
+
 - 사용 모듈 : mysql2, genericPool
 
 <br/>
@@ -266,6 +272,8 @@ module.exports = {
 <br/>
 
 #### DB 연결 시
+
+<br/>
 
 ```
 const serverConfig = {
