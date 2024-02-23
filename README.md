@@ -11,11 +11,9 @@
 ## How to use?
 
 <br/>
-<br/>
 
 ### Initial Settings And Maintenance Method
 
-<br/>
 <br/>
 
 #### Package.json & env
@@ -44,6 +42,8 @@ script 에서 dev과 production 분리 및 실행
 
 사용 이유 : 운영체제간의 차이로 인한 문제를 해결하기 위해
 
+<br/>
+
 ```
    // package.json
 
@@ -58,11 +58,12 @@ script 에서 dev과 production 분리 및 실행
 
 #### ServerConfig
 
-> Q : 왜 function 하게 구성하였나요?
+Q : 왜 function 하게 구성하였나요?
 <br/>
-> A : test코드 작성을 위해 app을 모듈화하고 싶었습니다.
+A : test코드 작성을 위해 app을 모듈화하고 싶었습니다.
 
 <br/>
+
 ```
    // serverConfig.js
 
@@ -149,6 +150,7 @@ module.exports = {
       },
    }
 ```
+
 <br/>
 <br/>
 
@@ -182,9 +184,15 @@ module.exports = {
 
 - 사용 모듈 : mysql2, genericPool
 
+<br/>
+
 `` npm install mysql2 genericePool``
 
+<br/>
+
 genericePool을 사용하는 이유가 궁금하다면 ? [generic-pool](https://jeong-park.tistory.com/42)
+
+<br/>
 
 ```
 // src/loader/db.js
