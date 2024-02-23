@@ -6,18 +6,30 @@
 
 ![_프로젝트 구조 drawio](https://github.com/Mirandalaw/BasicBoilerplate/assets/74170593/4969c3f6-1159-42c6-8161-a717255e6c49)
 
+<br/>
+
 ## How to use?
 
+<br/>
+<br/>
+
 ### Initial Settings And Maintenance Method
+
+<br/>
+<br/>
+
+#### Package.json & env
 
 script 에서 dev과 production 분리 및 실행
 
 - 사용 모듈 : env, cross-env
-    
+
 `` npm install env crosse-env --save-dev ``
 
 --save-dev 를 사용하는 이유가 궁금하다면? [devDependencies 와 dependencies 의 차이](https://jeong-park.tistory.com/34)
-   
+
+<br/>
+
 사용 이유 : dev와 production 분리하기 위해
 
 ```
@@ -27,7 +39,9 @@ script 에서 dev과 production 분리 및 실행
     path: path.resolve(__dirname, `../../.env.${environment}`),
     });
 ```
+
 <br/>
+
 사용 이유 : 운영체제간의 차이로 인한 문제를 해결하기 위해
 
 ```
@@ -39,10 +53,16 @@ script 에서 dev과 production 분리 및 실행
   }
 ```
 
+<br/>
+<br/>
+
 #### ServerConfig
 
-Q : 왜 function 하게 구성하였나요?
-A : test코드 작성을 위해 app을 모듈화하고 싶었습니다.
+> Q : 왜 function 하게 구성하였나요?
+<br/>
+> A : test코드 작성을 위해 app을 모듈화하고 싶었습니다.
+
+<br/>
 ```
    // serverConfig.js
 
@@ -73,6 +93,9 @@ A : test코드 작성을 위해 app을 모듈화하고 싶었습니다.
    
 ```
 
+<br/>
+<br/>
+
 #### Model
 
 ```
@@ -102,6 +125,9 @@ module.exports = {
 }
 ```
 
+<br/>
+<br/>
+
 #### Service
 
 ```
@@ -123,6 +149,8 @@ module.exports = {
       },
    }
 ```
+<br/>
+<br/>
 
 #### Controller
 
@@ -146,6 +174,9 @@ module.exports = {
    };
 
 ```
+
+<br/>
+<br/>
 
 #### DB Connection
 
@@ -223,6 +254,9 @@ module.exports = {
 };
 ```
 
+<br/>
+<br/>
+
 #### DB 연결 시
 
 ```
@@ -240,7 +274,3 @@ const serverConfig = {
    },
 };
 ```
-
-<br/>
-<br/>
-
