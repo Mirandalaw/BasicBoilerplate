@@ -6,7 +6,7 @@
 
 ![_프로젝트 구조 drawio](https://github.com/Mirandalaw/BasicBoilerplate/assets/74170593/4969c3f6-1159-42c6-8161-a717255e6c49)
 
-## How to use.
+## How to use?
 
 ### Initial Settings And Maintenance Method
 
@@ -27,7 +27,7 @@ script 에서 dev과 production 분리 및 실행
     path: path.resolve(__dirname, `../../.env.${environment}`),
     });
 ```
-
+<br/>
 사용 이유 : 운영체제간의 차이로 인한 문제를 해결하기 위해
 
 ```
@@ -41,6 +41,8 @@ script 에서 dev과 production 분리 및 실행
 
 #### ServerConfig
 
+Q : 왜 function 하게 구성하였나요?
+A : test코드 작성을 위해 app을 모듈화하고 싶었습니다.
 ```
    // serverConfig.js
 
@@ -145,7 +147,7 @@ module.exports = {
 
 ```
 
-### DB Connection
+#### DB Connection
 
 - 사용 모듈 : mysql2, genericPool
 
