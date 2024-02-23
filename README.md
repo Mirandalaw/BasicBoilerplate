@@ -1,14 +1,13 @@
 # BasicBoilerplate
 
-## 설명 
+## Intro
 
-   1) script 에서 dev과 production 분리 및 실행
-     - 사용 모듈 : env, cross-env
+   script 에서 dev과 production 분리 및 실행
+   - 사용 모듈 : env, cross-env
     
 `` npm install env crosse-env --save-dev ``
 
-    <pre>
-    <code>
+```
     // src/config/serverConfig.js
     
     // dev와 production 분리를 위해
@@ -17,7 +16,7 @@
     });
     </pre>
     </code>
-
+```
     
     
 
