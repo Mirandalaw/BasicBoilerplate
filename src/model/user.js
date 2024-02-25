@@ -14,18 +14,17 @@ module.exports = {
       return users[0];
     } catch (err) {
       logger.error("model Error : ", err.stack);
-      
+
       return err;
     } finally {
       const releasePromise = connection ? db.releaseConnection(connection) : null;
-      if(releasePromise) {
-        releasePromise.then(() =>{
+      if (releasePromise) {
+        releasePromise.then(() => {
           console.log('Connection released sucssessfully');
-        }).catch((error) =>{
+        }).catch((error) => {
           console.error("Error releasing connection: ", error);
         })
       }
     }
   },
-  }
-
+}
