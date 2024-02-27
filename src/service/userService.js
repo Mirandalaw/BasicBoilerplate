@@ -1,6 +1,8 @@
 const uuid = require("../util/uuid");
-const userModel = require("../model/user");
 const logger = require("../util/logger");
+
+const userModel = require("../model/user");
+
 
 module.exports = {
   findAll: async () => {
