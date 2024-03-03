@@ -1,5 +1,7 @@
 # BasicBoilerplate
 
+목적 :  Node.js의 기초적인 세팅과 기능 정리를 통해 예제로 사용할 수 있게 하기 위함.
+
 <br/>
 
 ## Structure.
